@@ -3,23 +3,23 @@
 'use strict';
 
 angular.module('meanApp', ['ui.router', 'ngResource', 'meanApp.controllers', 'meanApp.services'])
-    .config(['$stateProvider', '$urlRouteProvider', '$locationProvider', function ($stateProvider, $urlRouteProvider, $locationProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         $stateProvider
         .state('posts', {
             url: '/',
             templateUrl: 'templates/posts-index',
             controller: 'PostsIndexCtrl'
-        })
-        .state('post', {
-            url: '/posts/:id',
-            templateUrl: 'templates/posts-show',
-            controller: 'PostsShowCtrl'
         });
+        // .state('post', {
+        //     url: '/posts/:id',
+        //     templateUrl: 'templates/posts-show',
+        //     controller: 'PostsShowCtrl'
+        // });
 
-        $urlRouteProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/state1');
 
-        $locationProvider.html5mode({
+        $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
